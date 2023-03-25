@@ -10,7 +10,7 @@ function App() {
   const postApi = (postdata) => {
     fetch(" https://test-api-v3.myways.ai/user", {
       method: "post",
-      body: postdata,
+      body: JSON.stringify(postdata),
     })
       .then((res) => {
         return res.json();
@@ -26,7 +26,7 @@ function App() {
 
   const makeGate = (e) => {
     e.preventDefault();
-    fetch("https://test-api-v3.myways.ai/user?email=" + email)
+    fetch(`https://test-api-v3.myways.ai/user?email=${email}`)
       .then((res) => {
         return res.json();
       })
